@@ -35,7 +35,9 @@ const CardList = styled.div`
 const Row = ({ row, cards }) => {
   return (
     <Container>
-      <Title title={row.title}>{row.title}</Title>
+      <Title title={row.title}>
+        {row.title} {`(${row.cards.length})`}
+      </Title>
       <Droppable droppableId={String(row.id)}>
         {provided => (
           <CardList ref={provided.innerRef} {...provided.droppableProps}>
