@@ -40,7 +40,7 @@ export const setCards = () => {
         Authorization: `JWT ${token}`,
       },
     })
-      .then(responce => dispatch(setCardsSync(responce.data)))
+      .then(response => dispatch(setCardsSync(response.data)))
       .catch(err => console.log(err));
   };
 };
@@ -62,7 +62,7 @@ export const addCard = (rowId, text) => {
         Authorization: `JWT ${token}`,
       },
     })
-      .then(responce => dispatch(addCardSync(responce.data)))
+      .then(response => dispatch(addCardSync(response.data)))
       .catch(err => console.log(err));
   };
 };
