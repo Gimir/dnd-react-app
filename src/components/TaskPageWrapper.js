@@ -8,6 +8,7 @@ const TaskPageWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  flex-wrap: wrap;
   padding: 40px 0;
 `;
 
