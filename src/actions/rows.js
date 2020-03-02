@@ -73,6 +73,7 @@ export const updateCard = (cardId, source, destination) => {
     const row = getState().rows.find(row => String(row.id) === source.droppableId);
     const card = row.cards.find(card => String(card.id) === cardId);
     card.seq_num = destination.index;
+    card.row = String(destination.droppableId);
     dispatch(updateCardSync(card, source, destination));
     axios({
       method: 'patch',
