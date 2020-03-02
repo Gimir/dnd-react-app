@@ -38,7 +38,7 @@ const ExButton = styled.div`
 
 const CloseBtn = ({ onClick, position, size }) => (
   <ExButton onClick={onClick} style={position} size={size}>
-    <span></span>
+    <span />
   </ExButton>
 );
 
