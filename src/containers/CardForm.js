@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 
 import { addCard } from '../actions/rows';
@@ -8,6 +8,12 @@ import AddCardForm from '../components/AddCardForm';
 const CardForm = ({ addCard, rowId }) => {
   const [inputValue, setInputValue] = useState('');
   const [formActive, setFormActive] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(false);
+  const textareaEl = useRef(null);
+
+  useEffect(() => {
+    if (formActive) textareaEl.current.focus();
+  }, [formActive]);
 
   const onShowFormClick = () => {
     setFormActive(true);
@@ -23,11 +29,15 @@ const CardForm = ({ addCard, rowId }) => {
     setInputValue('');
   };
   const onInputChange = e => {
+    if (e.target.value) setIsFormValid(true);
+    else setIsFormValid(false);
     setInputValue(e.target.value);
   };
 
   return (
     <AddCardForm
+      isFormValid={isFormValid}
+      inputRef={textareaEl}
       inputValue={inputValue}
       formActive={formActive}
       onShowFormClick={onShowFormClick}

@@ -14,6 +14,7 @@ const Container = styled.div`
   background-color: ${colors.card_background};
   color: ${colors.card_text};
   position: relative;
+  font-size: 16px;
 `;
 const btnPosition = {
   position: 'absolute',

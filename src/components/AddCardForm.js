@@ -23,6 +23,7 @@ const FormContainer = styled.form`
     margin-bottom: 10px;
     border: none;
     resize: none;
+    font-size: 16px;
   }
   button {
     width: 60%;
@@ -34,6 +35,9 @@ const FormContainer = styled.form`
     font-size: 15px;
     padding: 0 15px;
     cursor: pointer;
+    &:disabled:hover {
+      cursor: default;
+    }
   }
 `;
 const OpenFormBtn = styled.div`
@@ -83,7 +87,9 @@ const AddCardForm = ({
   onAddCardClick,
   onInputChange,
   inputValue,
+  inputRef,
   formActive,
+  isFormValid,
 }) => (
   <Container>
     <OpenFormBtn show={!formActive} onClick={onShowFormClick}>
@@ -91,8 +97,15 @@ const AddCardForm = ({
       <p>Add card</p>
     </OpenFormBtn>
     <FormContainer show={formActive}>
-      <textarea value={inputValue} onChange={onInputChange} />
-      <button onClick={onAddCardClick}>Add card</button>
+      <textarea
+        value={inputValue}
+        onChange={onInputChange}
+        ref={inputRef}
+        placeholder="Write the title of your form"
+      />
+      <button onClick={onAddCardClick} disabled={!isFormValid}>
+        Add card
+      </button>
       <CloseBtn size={20} position={closeBtnPosition} onClick={onCloseFormClick} />
     </FormContainer>
   </Container>
