@@ -32,7 +32,7 @@ const CardList = styled.div`
   padding: 5px 10px 0 10px;
 `;
 
-const Row = ({ row, cards }) => {
+const Row = ({ row }) => {
   return (
     <Container>
       <Title title={row.title}>
@@ -41,7 +41,7 @@ const Row = ({ row, cards }) => {
       <Droppable droppableId={String(row.id)}>
         {provided => (
           <CardList ref={provided.innerRef} {...provided.droppableProps}>
-            {cards.map((card, index) => (
+            {row.cards.map((card, index) => (
               <Card key={card.id} card={card} index={index} />
             ))}
             {provided.placeholder}
