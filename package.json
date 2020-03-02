@@ -1,6 +1,10 @@
 {
   "name": "dnd-react-app",
   "version": "0.1.0",
+  "engines": {
+    "npm": "6.12.1",
+    "node": "13.3.0"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
